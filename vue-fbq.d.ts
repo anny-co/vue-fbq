@@ -67,9 +67,5 @@ declare module "@anny.co/vue-fbq" {
     interface Vue {
       $fbq: VueFbq;
     }
-
-    interface VueConstructor {
-      $fbq: VueFbq;
-    }
   }
 }
