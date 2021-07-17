@@ -20,7 +20,7 @@
     "lint:fix": "yarn lint --fix",
     "build": "bili",
     "prepack": "yarn build",
-    "postversion": "yarn publish"
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push"
   },
   "bugs": {
     "url": "https://gitlab.com/anny.co/vue-fbq/-/issues"
