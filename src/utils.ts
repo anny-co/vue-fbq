@@ -1,5 +1,3 @@
-const pendingScripts = new Map<string, Promise<unknown>>();
-
 type LoadOptions = {
   preconnectOrigin?: string;
 };
@@ -22,36 +20,27 @@ export function load(
     return Promise.reject(new Error("No document element"));
   }
 
-  if ((<never>window)[name]) {
-    return Promise.resolve((<never>window)[name]) as Promise<unknown>;
-  } else if (pendingScripts.has(name)) {
-    return pendingScripts.get(name) || Promise.resolve(<unknown>undefined);
-  } else {
-    const scriptElement = new Promise((resolve, reject) => {
-      const head = document.head || document.getElementsByTagName("head")[0];
-      const script = document.createElement("script");
-      script.defer = defer;
-      script.onload = () => {
-        pendingScripts.delete(name);
-        resolve((<never>window)[name]);
-      };
-      script.onerror = (error) => {
-        pendingScripts.delete(name);
-        reject(error);
-      };
-      if (options.preconnectOrigin) {
-        const link = document.createElement("link");
+  const scriptElement = new Promise((resolve, reject) => {
+    const head = document.head || document.getElementsByTagName("head")[0];
+    const script = document.createElement("script");
+    script.defer = defer;
+    script.onload = () => {
+      resolve((<never>window)[name]);
+    };
+    script.onerror = (error) => {
+      reject(error);
+    };
+    if (options.preconnectOrigin) {
+      const link = document.createElement("link");
 
-        link.href = options.preconnectOrigin;
-        link.rel = "preconnect";
-        head.appendChild(link);
-      }
-      head.appendChild(script);
-      script.src = src;
-    });
-    pendingScripts.set(name, scriptElement);
-    return scriptElement;
-  }
+      link.href = options.preconnectOrigin;
+      link.rel = "preconnect";
+      head.appendChild(link);
+    }
+    head.appendChild(script);
+    script.src = src;
+  });
+  return scriptElement;
 }
 
 /**
