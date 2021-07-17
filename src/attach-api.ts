@@ -2,6 +2,6 @@
 import _Vue from "vue";
 import * as api from "./api";
 
-const attachApi = (Vue: typeof _Vue) => (Vue.$fbq = Vue.prototype.$fbq = api);
+const attachApi = (Vue: typeof _Vue) => (Vue.prototype.$fbq = api);
 
 export default attachApi;
