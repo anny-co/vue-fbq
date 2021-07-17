@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-declare module "vue-fbq" {
+declare module "@anny.co/vue-fbq" {
   import _Vue from "vue";
 
   namespace Fbq {
