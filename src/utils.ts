@@ -14,6 +14,7 @@ export function load(
   name: string,
   src: string,
   defer = true,
+  async = true,
   options: LoadOptions = {}
 ): Promise<unknown> {
   if (typeof document === "undefined") {
@@ -24,6 +25,7 @@ export function load(
     const head = document.head || document.getElementsByTagName("head")[0];
     const script = document.createElement("script");
     script.defer = defer;
+    script.async = async;
     script.onload = () => {
       resolve((<never>window)[name]);
     };
