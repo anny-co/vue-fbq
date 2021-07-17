@@ -1,6 +1,6 @@
 {
   "name": "@anny.co/vue-fbq",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A VueJS plugin for the facebook pixel analytics to be used as a module for nuxt applications",
   "author": {
     "name": "Alexander Bartolomey",
