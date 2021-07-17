@@ -9,7 +9,7 @@ export default (): void => {
   const { globalObjectName, globalDataLayerName } = getOptions();
 
   if (window[globalObjectName] == null) {
-    window[globalDataLayerName].queue = window[globalDataLayerName].queue || [];
+    window[globalDataLayerName].queue = window[globalDataLayerName] || [];
     window[globalDataLayerName].loaded = true;
     window[globalDataLayerName].version = "2.0";
     window[globalObjectName] = function (...args: unknown[]) {
