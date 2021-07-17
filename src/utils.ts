@@ -27,8 +27,8 @@ export function load(
     script.onload = () => {
       resolve((<never>window)[name]);
     };
-    script.onerror = (error) => {
-      reject(error);
+    script.onerror = () => {
+      reject();
     };
     if (options.preconnectOrigin) {
       const link = document.createElement("link");
