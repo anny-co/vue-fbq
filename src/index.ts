@@ -17,7 +17,7 @@ export { default as event } from "./api/event";
 export { default as initialize } from "./api/initialize";
 export { default as optIn } from "./api/opt-in";
 export { default as optOut } from "./api/opt-out";
-export { default as pageview } from "./api/pageview";
+export { default as track } from "./api/track";
 export { default as query } from "./api/query";
 
 export { default as bootstrap } from "./bootstrap";
