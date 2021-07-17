@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import _Vue from "vue";
+import * as api from "./api";
 
-const attachApi = (Vue: typeof _Vue): void => {
-  Vue.prototype.$fbq = {};
-};
+const attachApi = (Vue: typeof _Vue) => (Vue.$fbq = Vue.prototype.$fbq = api);
 
 export default attachApi;
