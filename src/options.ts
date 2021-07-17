@@ -4,7 +4,6 @@ export interface Options {
   bootstrap: boolean;
   onReady(args?: unknown[]): unknown;
   onError(err: Error): void;
-  globalDataLayerName: string;
   customResourceURL: string;
   customNoscriptURL: string;
   deferScriptLoad: boolean;
@@ -21,7 +20,6 @@ export const getDefaultOptions = (): Options => ({
   bootstrap: true,
   onReady: () => ({}),
   onError: () => ({}),
-  globalDataLayerName: "_fbq",
   customResourceURL: "https://connect.facebook.net/en_US/fbevents.js",
   customNoscriptURL: "https://www.facebook.com/tr",
   deferScriptLoad: false,

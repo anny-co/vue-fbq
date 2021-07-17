@@ -35,7 +35,6 @@ declare module "@anny.co/vue-fbq" {
     bootstrap: boolean;
     onReady(args?: unknown[]): unknown;
     onError(err: Error): void;
-    globalDataLayerName: string;
     customResourceURL: string;
     customNoscriptURL: string;
     deferScriptLoad: boolean;
