@@ -21,7 +21,8 @@ export default async (): Promise<void> => {
   }
 
   try {
-    await load(globalObjectName, customResourceURL, deferScriptLoad);
+    // by default, load script asynchronously
+    await load(globalObjectName, customResourceURL, deferScriptLoad, true);
     loadNoscript(customNoscriptURL, config.id);
     if (onReady) {
       onReady(window[globalObjectName]);
