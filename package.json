@@ -1,0 +1,59 @@
+{
+  "name": "@anny.co/vue-fbq",
+  "version": "0.0.1",
+  "description": "A VueJS plugin for the facebook pixel analytics to be used as a module for nuxt applications",
+  "author": {
+    "name": "Alexander Bartolomey",
+    "email": "alexander.bartolomey@anny.co"
+  },
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/anny.co/vue-fbq"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "lint:fix": "yarn lint --fix",
+    "build": "bili",
+    "prepack": "yarn build",
+    "postversion": "yarn publish"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/anny.co/vue-fbq/-/issues"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "babel-eslint": "^10.1.0",
+    "bili": "^5.0.5",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "prettier": "^2.0.5",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "unpkg": "./dist/index.umd.js",
+  "jsdelivr": "./dist/index.umd.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ]
+}
