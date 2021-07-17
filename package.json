@@ -57,6 +57,6 @@
   "types": "./vue-fbq.d.ts",
   "files": [
     "dist",
-    "./vue-fbq.d.ts"
+    "vue-fbq.d.ts"
   ]
 }
