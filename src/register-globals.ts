@@ -15,7 +15,7 @@ export default (): CallMethod | void => {
     window[globalDataLayerName] = window[globalDataLayerName] || [];
     window[globalObjectName] = Object.assign(
       function (...args: unknown[]) {
-        window[globalDataLayerName].queue.push(...args);
+        window[globalDataLayerName].push(...args);
       },
       {
         loaded: true,
