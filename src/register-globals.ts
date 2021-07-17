@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { isBrowser } from "./utils";
 import { getOptions } from "./options";
 
-export default (): void => {
+type CallMethod = (...args: unknown[]) => void;
+
+export default (): CallMethod | void => {
   if (!isBrowser()) {
     return;
   }
@@ -9,15 +12,17 @@ export default (): void => {
   const { globalObjectName, globalDataLayerName } = getOptions();
 
   if (window[globalObjectName] == null) {
-    window[globalDataLayerName].queue = window[globalDataLayerName] || [];
-    window[globalDataLayerName].loaded = true;
-    window[globalDataLayerName].version = "2.0";
-    window[globalObjectName] = function (...args: unknown[]) {
-      window[globalDataLayerName].queue.push(...args);
-    };
+    window[globalDataLayerName] = window[globalDataLayerName] || [];
+    window[globalObjectName] = Object.assign(
+      function (...args: unknown[]) {
+        window[globalDataLayerName].queue.push(...args);
+      },
+      {
+        loaded: true,
+        version: "2.0",
+      }
+    );
   }
-
-  window[globalObjectName]("js", new Date());
 
   return window[globalObjectName];
 };
