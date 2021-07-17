@@ -30,6 +30,5 @@ export default async (): Promise<void> => {
     if (onError) {
       onError(err);
     }
-    throw err;
   }
 };
