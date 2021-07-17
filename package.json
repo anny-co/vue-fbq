@@ -1,10 +1,13 @@
 {
   "name": "@anny.co/vue-fbq",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "A VueJS plugin for the facebook pixel analytics to be used as a module for nuxt applications",
   "author": {
     "name": "Alexander Bartolomey",
     "email": "alexander.bartolomey@anny.co"
+  },
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/28212192/packages/npm/"
   },
   "license": "MIT",
   "private": false,
@@ -51,9 +54,9 @@
   "module": "./dist/index.esm.js",
   "unpkg": "./dist/index.umd.js",
   "jsdelivr": "./dist/index.umd.js",
-  "types": "./dist/src/index.d.ts",
+  "types": "./vue-fbq.d.ts",
   "files": [
     "dist",
-    "src"
+    "./vue-fbq.d.ts"
   ]
 }
