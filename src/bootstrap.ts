@@ -29,7 +29,7 @@ export default async (): Promise<void> => {
     }
   } catch (err) {
     if (onError) {
-      onError(err);
+      onError(err as Error);
     }
   }
 };
