@@ -1,7 +1,3 @@
-type LoadOptions = {
-  preconnectOrigin?: string;
-};
-
 /**
  * Load script and return load status as Promise
  *
@@ -14,8 +10,7 @@ export function load(
   name: string,
   src: string,
   defer = true,
-  async = true,
-  options: LoadOptions = {}
+  async = true
 ): Promise<unknown> {
   if (typeof document === "undefined") {
     return Promise.reject(new Error("No document element"));
@@ -32,13 +27,6 @@ export function load(
     script.onerror = () => {
       reject();
     };
-    if (options.preconnectOrigin) {
-      const link = document.createElement("link");
-
-      link.href = options.preconnectOrigin;
-      link.rel = "preconnect";
-      head.appendChild(link);
-    }
     head.appendChild(script);
     script.src = src;
   });
@@ -47,14 +35,14 @@ export function load(
 
 /**
  * Doesn't make much sense, does it?!
- * @param src
- * @param id
+ * @deprecated
+ * @param src base url for the img's src attribute
+ * @param id pid for the tracking campaign
  */
 export function loadNoscript(src: string, id: string): void {
   if (typeof document === "undefined") {
     return;
   }
-  /** <img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=${this.$config.fbId}&ev=PageView&noscript=1"/> */
   const head = document.head || document.getElementsByTagName("head")[0];
   const noscript = document.createElement("noscript");
   const img = document.createElement("img");
