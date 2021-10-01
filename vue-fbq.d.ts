@@ -51,7 +51,7 @@ declare module "@anny.co/vue-fbq" {
     static install(Vue: typeof _Vue, options: Options): void;
   }
 
-  export function bootstrap(): Promise<Fbq.Fbq>;
+  export function bootstrap(): Promise<() => void>;
   export function setOptions(options: Partial<Options>): void;
 
   export default VueFbqPlugin;
