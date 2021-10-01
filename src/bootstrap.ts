@@ -1,15 +1,15 @@
 import { getOptions } from "./options";
 import registerGlobals from "./register-globals";
-import { load, loadNoscript } from "./utils";
+import { load } from "./utils";
 
 export default async (): Promise<void> => {
   const {
     onReady,
     onError,
     globalObjectName,
-    config,
+    // config,
     customResourceURL,
-    customNoscriptURL,
+    // customNoscriptURL,
     deferScriptLoad,
     disableScriptLoad,
   } = getOptions();
@@ -23,7 +23,7 @@ export default async (): Promise<void> => {
   try {
     // by default, load script asynchronously
     await load(globalObjectName, customResourceURL, deferScriptLoad, true);
-    loadNoscript(customNoscriptURL, config.id);
+    // loadNoscript(customNoscriptURL, config.id);
     if (onReady) {
       onReady(window[globalObjectName]);
     }
