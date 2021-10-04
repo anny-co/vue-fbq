@@ -9,7 +9,7 @@ const config: Config = {
   },
   output: {
     dir: "./dist/",
-    format: ["esm"],
+    format: ["esm", "esm-min", "cjs", "cjs-min"],
     moduleName: name,
   },
 };
