@@ -15,11 +15,11 @@ export default (): void => {
     return;
   }
 
-  const fbq = (window[globalObjectName] = function (...args: unknown[]) {
+  const fbq = function (...args: unknown[]) {
     (<any>fbq).callMethod
       ? (<any>fbq).callMethod.apply(fbq, args)
       : (<any>fbq).queue.push(...args);
-  });
+  };
 
   if (!window["_" + globalObjectName]) {
     window["_" + globalObjectName] = fbq;
