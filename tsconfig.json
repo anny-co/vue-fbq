@@ -9,11 +9,11 @@
     ],
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./",
+    "baseUrl": "./",
     "strict": true,
+    "noEmit": true,
     "noImplicitAny": false,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -22,5 +22,8 @@
   },
   "exclude": [
     "./bili.config.ts"
+  ],
+  "include": [
+    "./src/**.ts"
   ]
 }
