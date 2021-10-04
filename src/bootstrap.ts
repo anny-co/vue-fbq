@@ -1,3 +1,5 @@
+import initialize from "./api/initialize";
+import track from "./api/track";
 import { getOptions } from "./options";
 import registerGlobals from "./register-globals";
 import { load } from "./utils";
@@ -27,9 +29,13 @@ export default async (): Promise<void> => {
     if (onReady) {
       onReady(window[globalObjectName]);
     }
+    initialize();
+    track();
   } catch (err) {
     if (onError) {
       onError(err as Error);
+    } else {
+      throw err;
     }
   }
 };
